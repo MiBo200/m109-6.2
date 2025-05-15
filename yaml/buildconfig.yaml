@@ -1,0 +1,25 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: html-openshift-app
+  labels:
+    app: html-openshift-app
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/MiBo200/m109-6.2.git
+      ref: main
+    contextDir: .
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: html-openshift-app:latest
+  triggers:
+    - type: GitHub
+    - type: ConfigChange
+    - type: ImageChange
