@@ -12,6 +12,5 @@ spec:
       port: 8080
       targetPort: 8080
   type: ClusterIP
-  sessionAffinity: None
   selector:
     app: html-openshift-app
