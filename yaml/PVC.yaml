@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name:petclinic-app-mysql
+  labels:
+    app: petclinic-app-mysql
+    app.kubernetes.io/part-of: petclinic-app
+spec:
+  accessModes:
+    - ReadWriteeOnce
+  resources:  
+      requests:
+        storage:1Gi
+  storageClassName: rbd-storagepool-Cluster
+  columeMode: Filesystem
